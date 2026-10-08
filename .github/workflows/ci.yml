@@ -1,0 +1,28 @@
+name: CI
+
+on:
+    push:
+        branches: [develop]
+    pull_request:
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: ["20", "22", "24"]
+        steps:
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 12
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node }}
+                  cache: pnpm
+            - run: pnpm install --frozen-lockfile
+            - run: pnpm run lint
+            - run: pnpm exec tsc --noEmit
+            - run: pnpm exec vitest run
+            - run: pnpm run build
+            - run: pnpm --filter sveltekit-pet test

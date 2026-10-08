@@ -1,0 +1,6 @@
+dist/
+node_modules/
+tests/proto/
+examples/*/.svelte-kit/
+examples/*/build/
+pnpm-lock.yaml

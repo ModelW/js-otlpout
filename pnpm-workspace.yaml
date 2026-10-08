@@ -1,0 +1,9 @@
+packages:
+    - "examples/*"
+
+allowBuilds:
+    esbuild: true
+    protobufjs: true
+
+minimumReleaseAgeExclude:
+    - vite@8.3.4

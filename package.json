@@ -1,0 +1,46 @@
+{
+    "name": "js-otlpout",
+    "version": "0.1.0",
+    "description": "Sentry JS integration that mirrors spans, errors and logs to stdout as OTLP/JSON.",
+    "license": "Apache-2.0",
+    "author": "Rémy Sanchez <remy.sanchez@hyperthese.net>",
+    "type": "module",
+    "engines": {
+        "node": ">=20"
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsup",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "lint": "prettier --check . && eslint .",
+        "format": "prettier --write ."
+    },
+    "peerDependencies": {
+        "@sentry/core": ">=8"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.0.0",
+        "@opentelemetry/semantic-conventions": "^1.0.0",
+        "@sentry/core": "^11.0.0",
+        "@types/node": "^24.0.0",
+        "eslint": "^9.0.0",
+        "prettier": "^3.0.0",
+        "protobufjs": "^7.0.0",
+        "tsup": "^8.0.0",
+        "typescript": "^5.0.0",
+        "typescript-eslint": "^8.0.0",
+        "vitest": "^3.0.0"
+    }
+}
