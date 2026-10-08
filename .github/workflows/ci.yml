@@ -25,4 +25,6 @@ jobs:
             - run: pnpm exec tsc --noEmit
             - run: pnpm exec vitest run
             - run: pnpm run build
+            # SvelteKit 3 uses `Promise.withResolvers`, which needs Node 22+.
             - run: pnpm --filter sveltekit-pet test
+              if: matrix.node != '20'
