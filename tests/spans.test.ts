@@ -48,7 +48,7 @@ describe("HTTP-only span filtering (KFF-269)", () => {
         );
 
         const scopes = output!.resourceSpans[0]!.scopeSpans;
-        expect(scopes.map((entry) => entry.scope.name)).toEqual([
+        expect(scopes.map((entry) => entry.scope?.name)).toEqual([
             "sentry.transaction",
         ]);
         expect(scopes[0]!.spans).toHaveLength(1);
@@ -61,7 +61,7 @@ describe("HTTP-only span filtering (KFF-269)", () => {
         );
 
         const scopes = output!.resourceSpans[0]!.scopeSpans;
-        expect(scopes.map((entry) => entry.scope.name)).toEqual([
+        expect(scopes.map((entry) => entry.scope?.name)).toEqual([
             "sentry.transaction",
             "sentry.span",
         ]);
